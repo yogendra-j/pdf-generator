@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Generate PDF",
+  title: { template: "%s | PDF Generator", default: "PDF Generator" },
   description: "Generate PDF from URL",
   openGraph: {
     title: "Generate PDF",
