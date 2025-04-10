@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import { downloadPdf, generatePdfFromUrl } from "../services/pdfService";
 
 interface UsePdfGenerationOptions {
   onSuccess?: () => void;
@@ -8,8 +9,9 @@ interface UsePdfGenerationOptions {
 export const usePdfGeneration = (options?: UsePdfGenerationOptions) => {
   const mutation = useMutation({
     mutationFn: async (url: string) => {
-      console.log("Generating PDF from URL:", url);
-      return;
+      const pdfBlob = await generatePdfFromUrl(url);
+      downloadPdf(pdfBlob);
+      return pdfBlob;
     },
     onSuccess: options?.onSuccess,
     onError: options?.onError,
