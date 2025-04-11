@@ -1,4 +1,5 @@
 import { ZoomIn, ZoomOut } from "lucide-react";
+import { Button } from "../../../../components/ui/button";
 
 interface PdfZoomControlsProps {
   scale: number;
@@ -14,30 +15,33 @@ const PdfZoomControls = ({
   resetZoom,
 }: PdfZoomControlsProps) => (
   <div className="flex items-center gap-2">
-    <button
+    <Button
       onClick={zoomOut}
-      className="p-1 rounded-md hover:bg-gray-200 text-gray-700"
+      variant="ghost"
+      size="icon"
       title="Zoom Out"
       aria-label="Zoom Out"
     >
       <ZoomOut size={18} />
-    </button>
-    <button
+    </Button>
+    <Button
       onClick={resetZoom}
-      className="p-1 rounded-md hover:bg-gray-200 text-gray-700 text-sm"
+      variant="ghost"
+      size="sm"
       title="Reset Zoom"
       aria-label="Reset Zoom"
     >
       {Math.round(scale * 100)}%
-    </button>
-    <button
+    </Button>
+    <Button
       onClick={zoomIn}
-      className="p-1 rounded-md hover:bg-gray-200 text-gray-700"
+      variant="ghost"
+      size="icon"
       title="Zoom In"
       aria-label="Zoom In"
     >
       <ZoomIn size={18} />
-    </button>
+    </Button>
   </div>
 );
 

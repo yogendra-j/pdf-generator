@@ -1,6 +1,8 @@
+import { Loader2 } from "lucide-react";
+
 const Loader = () => (
   <div className="flex justify-center items-center h-full w-full">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    <Loader2 className="h-12 w-12 animate-spin text-blue-600" />
   </div>
 );
 
