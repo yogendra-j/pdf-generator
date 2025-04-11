@@ -24,7 +24,7 @@ const PdfNavigationControls = ({
     >
       <ArrowLeft size={18} />
     </Button>
-    <span className="text-sm text-gray-700">
+    <span className="text-sm text-foreground">
       Page {pageNumber} of {numPages}
     </span>
     <Button

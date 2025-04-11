@@ -51,7 +51,7 @@ const PdfPreview = ({
         </div>
       )}
 
-      <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md max-w-fit">
+      <div className="bg-card rounded-lg overflow-hidden border border-border shadow-md max-w-fit">
         <PdfHeader filename={filename} onDownload={onDownload} />
 
         <PdfViewer
