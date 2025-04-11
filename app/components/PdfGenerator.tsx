@@ -5,7 +5,7 @@ import { usePdfGeneration } from "./pdf/hooks/usePdfGeneration";
 import UrlForm from "./UrlForm";
 
 interface PdfGeneratorProps {
-  onPdfGenerated: (blob: Blob, filename: string) => void;
+  onPdfGenerated: (blob: Blob | null, filename: string) => void;
 }
 
 const PdfGenerator = ({ onPdfGenerated }: PdfGeneratorProps) => {
@@ -26,6 +26,7 @@ const PdfGenerator = ({ onPdfGenerated }: PdfGeneratorProps) => {
   });
 
   const handleGeneratePdf = (url: string) => {
+    onPdfGenerated(null, "");
     setError(null);
     reset();
     generatePdf(url);

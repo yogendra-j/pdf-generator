@@ -8,7 +8,7 @@ const PdfApp = () => {
   const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
   const [filename, setFilename] = useState<string>("download.pdf");
 
-  const handlePdfGenerated = (blob: Blob, name: string) => {
+  const handlePdfGenerated = (blob: Blob | null, name: string) => {
     setPdfBlob(blob);
     setFilename(name);
   };
