@@ -1,17 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
-import { downloadPdf, generatePdfFromUrl } from "../services/pdfService";
+import { generatePdfFromUrl } from "../services/pdfService";
 
 interface UsePdfGenerationOptions {
-  onSuccess?: () => void;
+  onSuccess?: (blob: Blob) => void;
   onError?: (error: Error) => void;
 }
 
 export const usePdfGeneration = (options?: UsePdfGenerationOptions) => {
   const mutation = useMutation({
     mutationFn: async (url: string) => {
-      const pdfBlob = await generatePdfFromUrl(url);
-      downloadPdf(pdfBlob);
-      return pdfBlob;
+      return generatePdfFromUrl(url);
     },
     onSuccess: options?.onSuccess,
     onError: options?.onError,
@@ -22,5 +20,6 @@ export const usePdfGeneration = (options?: UsePdfGenerationOptions) => {
     isLoading: mutation.isPending,
     error: mutation.error,
     reset: mutation.reset,
+    pdfBlob: mutation.data,
   };
 };
