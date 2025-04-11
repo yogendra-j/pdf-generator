@@ -1,6 +1,7 @@
 "use client";
 
-import { LinkIcon, Loader2 } from "lucide-react";
+import { QuirkyLoader } from "@/app/components/QuirkyLoader";
+import { LinkIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
@@ -60,19 +61,17 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
           </p>
         )}
       </div>
+      {isLoading && <QuirkyLoader />}
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full h-11 font-medium"
+        className={`w-full h-11 font-medium transition-all duration-300 ${
+          isLoading
+            ? "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+            : ""
+        }`}
       >
-        {isLoading ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Generating PDF...
-          </>
-        ) : (
-          "Generate PDF"
-        )}
+        {isLoading ? <QuirkyLoader.ButtonContent /> : "Generate PDF"}
       </Button>
     </form>
   );
