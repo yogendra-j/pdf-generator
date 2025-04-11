@@ -19,7 +19,7 @@ export const generatePdf = async (
 
     await page.setViewport({ width: 1280, height: 1024 });
 
-    await page.goto(url, { waitUntil: "domcontentloaded" });
+    await page.goto(url, { waitUntil: "load" });
     console.log("Waiting for images to load");
     await Promise.race([
       waitForImagesLoaded(page),
@@ -30,19 +30,24 @@ export const generatePdf = async (
     const [stream1, stream2] = webStream.tee();
     const nodeStream = webToNodeStream(stream1);
 
-    nodeStream.on("end", () => browser.disconnect().catch(console.error));
-    nodeStream.on("error", () => browser.disconnect().catch(console.error));
+    nodeStream.on("end", () => browser.close().catch(console.error));
+    nodeStream.on("error", () => browser.close().catch(console.error));
 
     return stream2;
   } catch (error) {
-    await browser.disconnect();
+    await browser.close();
     throw error;
   }
 };
 
 const waitForImagesLoaded = async (page: Page): Promise<void> => {
   return page.evaluate(async () => {
-    document.body.scrollIntoView(false);
+    document.body.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+
     const selectors = Array.from(document.querySelectorAll("img"));
     await Promise.all(
       selectors.map((img) => {
@@ -61,5 +66,9 @@ const createPdfStream = async (
 ): Promise<ReadableStream<Uint8Array>> => {
   return page.createPDFStream({
     format: "A4",
+    height: 1024,
+    width: 1280,
+    printBackground: true,
+    landscape: true,
   });
 };
