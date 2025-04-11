@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Eye } from "lucide-react";
+import { Download, Eye } from "lucide-react";
 import { useState } from "react";
 import PdfPreview from "./PdfPreview";
 
@@ -30,22 +30,31 @@ const PdfPreviewer = ({ pdfBlob, filename }: PdfPreviewerProps) => {
   }
 
   return (
-    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-      <DialogTitle className="sr-only">Preview PDF</DialogTitle>
-      <DialogTrigger asChild>
-        <button className="flex items-center gap-2 border border-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors">
-          <Eye size={16} />
-          Preview PDF
-        </button>
-      </DialogTrigger>
-      <DialogContent className="flex justify-center items-center bg-white/90 backdrop-blur-sm">
-        <PdfPreview
-          pdfBlob={pdfBlob}
-          onDownload={handleDownload}
-          filename={filename}
-        />
-      </DialogContent>
-    </Dialog>
+    <div className="flex gap-2">
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogTitle className="sr-only">Preview PDF</DialogTitle>
+        <DialogTrigger asChild>
+          <button className="flex items-center gap-2 border border-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors">
+            <Eye size={16} />
+            Preview PDF
+          </button>
+        </DialogTrigger>
+        <DialogContent className="flex justify-center items-center bg-white/90 backdrop-blur-sm">
+          <PdfPreview
+            pdfBlob={pdfBlob}
+            onDownload={handleDownload}
+            filename={filename}
+          />
+        </DialogContent>
+      </Dialog>
+      <button
+        onClick={handleDownload}
+        className="flex items-center gap-2 border border-gray-300 py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
+      >
+        <Download size={16} />
+        Download PDF
+      </button>
+    </div>
   );
 };
 
