@@ -9,12 +9,7 @@ export const POST = async (req: NextRequest): Promise<NextResponse> => {
     let payload;
     try {
       payload = await req.json();
-      if (!validatePdfRequest(payload)) {
-        return NextResponse.json(
-          { error: "Invalid JSON in request body" },
-          { status: 400 }
-        );
-      }
+      validatePdfRequest(payload);
     } catch (error) {
       return NextResponse.json(error, { status: 400 });
     }
