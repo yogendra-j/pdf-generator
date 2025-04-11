@@ -1,8 +1,8 @@
-import { generatePdfFromUrl } from "@/app/services/pdfService";
+import { PdfResponse, generatePdfFromUrl } from "@/app/services/pdfService";
 import { useMutation } from "@tanstack/react-query";
 
 interface UsePdfGenerationOptions {
-  onSuccess?: (blob: Blob) => void;
+  onSuccess?: (response: PdfResponse) => void;
   onError?: (error: Error) => void;
 }
 
@@ -20,6 +20,6 @@ export const usePdfGeneration = (options?: UsePdfGenerationOptions) => {
     isLoading: mutation.isPending,
     error: mutation.error,
     reset: mutation.reset,
-    pdfBlob: mutation.data,
+    pdfResponse: mutation.data,
   };
 };

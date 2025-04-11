@@ -2,10 +2,15 @@ import { webToNodeStream } from "@/app/utils/webToNodeStream";
 import type { Browser, Page } from "puppeteer";
 import puppeteer from "puppeteer";
 
+export interface PdfGenerationResult {
+  pdfStream: ReadableStream<Uint8Array>;
+  title: string;
+}
+
 export const generatePdf = async (
   url: string,
   browserlessToken: string
-): Promise<ReadableStream<Uint8Array>> => {
+): Promise<PdfGenerationResult> => {
   if (!browserlessToken) {
     throw new Error("Browserless token is required");
   }
@@ -26,14 +31,29 @@ export const generatePdf = async (
       new Promise((resolve) => setTimeout(() => resolve(undefined), 10000)),
     ]);
     console.log("Images loaded");
+
+    const title = await getPageTitle(page);
     const webStream = await createPdfStream(page);
     const [stream1, stream2] = webStream.tee();
     closeBrowserOnStreamEnd(stream1, browser);
 
-    return stream2;
+    return {
+      pdfStream: stream2,
+      title,
+    };
   } catch (error) {
     await browser.close();
     throw error;
+  }
+};
+
+const getPageTitle = async (page: Page): Promise<string> => {
+  try {
+    const title = await page.title();
+    return title || "download";
+  } catch (error) {
+    console.error("Error getting page title:", error);
+    return "download";
   }
 };
 

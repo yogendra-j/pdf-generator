@@ -2,9 +2,21 @@ import axios from "axios";
 
 const API_BASE_URL = "/api";
 
-export const generatePdfFromUrl = async (url: string): Promise<Blob> => {
+export interface PdfResponse {
+  blob: Blob;
+  filename: string;
+}
+
+const extractFilename = (contentDisposition: string | null): string => {
+  if (!contentDisposition) return "download.pdf";
+
+  const filenameMatch = contentDisposition.match(/filename="([^"]+)"/);
+  return filenameMatch ? filenameMatch[1] : "download.pdf";
+};
+
+export const generatePdfFromUrl = async (url: string): Promise<PdfResponse> => {
   try {
-    return await axios.post(
+    const response = await axios.post(
       `${API_BASE_URL}/generate-pdf`,
       { url },
       {
@@ -14,6 +26,14 @@ export const generatePdfFromUrl = async (url: string): Promise<Blob> => {
         },
       }
     );
+
+    const contentDisposition = response.headers["content-disposition"];
+    const filename = extractFilename(contentDisposition);
+
+    return {
+      blob: response.data,
+      filename,
+    };
   } catch (error) {
     if (axios.isAxiosError(error) && error.response?.data instanceof Blob) {
       const text = await error.response.data.text();

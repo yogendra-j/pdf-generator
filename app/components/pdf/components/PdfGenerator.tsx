@@ -10,8 +10,8 @@ interface PdfGeneratorProps {
 
 const PdfGenerator = ({ onPdfGenerated }: PdfGeneratorProps) => {
   const { generatePdf, isLoading, reset, error } = usePdfGeneration({
-    onSuccess: (blob) => {
-      onPdfGenerated(blob, "download.pdf");
+    onSuccess: (response) => {
+      onPdfGenerated(response.blob, response.filename);
     },
   });
 
