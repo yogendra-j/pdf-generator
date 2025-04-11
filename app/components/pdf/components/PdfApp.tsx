@@ -1,8 +1,8 @@
 "use client";
 
+import PdfGenerator from "@/app/components/pdf/components/PdfGenerator";
+import PdfPreviewer from "@/app/components/pdf/components/PdfPreviewer";
 import { useState } from "react";
-import PdfGenerator from "./PdfGenerator";
-import PdfPreviewer from "./PdfPreviewer";
 
 const PdfApp = () => {
   const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);

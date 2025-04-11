@@ -1,11 +1,11 @@
 "use client";
 
-import { QuirkyLoader } from "@/app/components/QuirkyLoader";
+import { QuirkyLoader } from "@/app/components/common/QuirkyLoader";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@radix-ui/react-label";
 import { LinkIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
 
 interface UrlFormProps {
   onSubmit: (url: string) => void;

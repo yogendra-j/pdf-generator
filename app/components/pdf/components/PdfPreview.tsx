@@ -1,16 +1,14 @@
 "use client";
 
+import PdfControls from "@/app/components/pdf/components/PdfControls";
+import PdfHeader from "@/app/components/pdf/components/PdfHeader";
+import PdfViewer from "@/app/components/pdf/components/PdfViewer";
+import usePdfNavigation from "@/app/components/pdf/hooks/usePdfNavigation";
+import usePdfUrl from "@/app/components/pdf/hooks/usePdfUrl";
+import usePdfZoom from "@/app/components/pdf/hooks/usePdfZoom";
+import "@/app/components/pdf/pdfjs-config";
+import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
-import "../components/pdf/pdfjs-config";
-
-import usePdfNavigation from "./pdf/hooks/usePdfNavigation";
-import usePdfUrl from "./pdf/hooks/usePdfUrl";
-import usePdfZoom from "./pdf/hooks/usePdfZoom";
-
-import Loader from "./pdf/components/Loader";
-import PdfControls from "./pdf/components/PdfControls";
-import PdfHeader from "./pdf/components/PdfHeader";
-import PdfViewer from "./pdf/components/PdfViewer";
 
 interface PdfPreviewProps {
   pdfBlob: Blob;

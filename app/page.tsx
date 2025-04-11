@@ -1,5 +1,5 @@
+import PdfApp from "@/app/components/pdf/components/PdfApp";
 import { Metadata } from "next";
-import PdfApp from "./components/PdfApp";
 
 export const metadata: Metadata = {
   title: "Home | PDF Generator",

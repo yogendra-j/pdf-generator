@@ -1,8 +1,8 @@
 "use client";
 
+import UrlForm from "@/app/components/pdf/components/UrlForm";
+import { usePdfGeneration } from "@/app/components/pdf/hooks/usePdfGeneration";
 import { useState } from "react";
-import { usePdfGeneration } from "./pdf/hooks/usePdfGeneration";
-import UrlForm from "./UrlForm";
 
 interface PdfGeneratorProps {
   onPdfGenerated: (blob: Blob | null, filename: string) => void;

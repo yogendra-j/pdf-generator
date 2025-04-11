@@ -1,8 +1,8 @@
+import { generatePdf } from "@/app/services/pdf-generator";
+import { ErrorResponse } from "@/app/types/pdf";
+import { env } from "@/app/utils/env";
+import { validatePdfRequest } from "@/app/utils/validation";
 import { NextRequest, NextResponse } from "next/server";
-import { generatePdf } from "../../services/pdf-generator";
-import { ErrorResponse } from "../../types/pdf";
-import { env } from "../../utils/env";
-import { validatePdfRequest } from "../../utils/validation";
 
 export const POST = async (req: NextRequest): Promise<NextResponse> => {
   try {
