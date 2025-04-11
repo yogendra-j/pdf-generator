@@ -16,7 +16,6 @@ const PdfApp = () => {
   return (
     <div className="w-full max-w-md">
       <PdfGenerator onPdfGenerated={handlePdfGenerated} />
-
       {pdfBlob && <PdfPreviewer pdfBlob={pdfBlob} filename={filename} />}
     </div>
   );

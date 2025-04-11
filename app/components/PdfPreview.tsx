@@ -22,7 +22,7 @@ const PdfPreview = ({
 }: PdfPreviewProps) => {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [scale, setScale] = useState<number>(1.0);
+  const [scale, setScale] = useState<number>(0.5);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -59,7 +59,7 @@ const PdfPreview = ({
   const resetZoom = () => setScale(1.0);
 
   return (
-    <div className="w-full flex flex-col gap-4 items-center">
+    <div className="flex flex-col gap-4 items-center max-w-fit max-h-fit">
       {loading && (
         <div className="w-full flex justify-center items-center p-8">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
