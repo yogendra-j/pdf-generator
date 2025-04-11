@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import PdfGenerator from "./components/PdfGenerator";
+import PdfApp from "./components/PdfApp";
 
 export const metadata: Metadata = {
   title: "Home | PDF Generator",
@@ -15,7 +15,7 @@ export default function Home() {
           Enter a URL below to generate a PDF of the webpage
         </p>
 
-        <PdfGenerator />
+        <PdfApp />
       </div>
     </main>
   );
