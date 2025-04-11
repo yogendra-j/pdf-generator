@@ -30,12 +30,12 @@ export const generatePdf = async (
     const [stream1, stream2] = webStream.tee();
     const nodeStream = webToNodeStream(stream1);
 
-    nodeStream.on("end", () => browser.close().catch(console.error));
-    nodeStream.on("error", () => browser.close().catch(console.error));
+    nodeStream.on("end", () => browser.disconnect().catch(console.error));
+    nodeStream.on("error", () => browser.disconnect().catch(console.error));
 
     return stream2;
   } catch (error) {
-    await browser.close();
+    await browser.disconnect();
     throw error;
   }
 };
