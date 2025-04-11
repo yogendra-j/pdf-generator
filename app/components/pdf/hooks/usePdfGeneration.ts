@@ -1,5 +1,5 @@
+import { generatePdfFromUrl } from "@/app/services/pdfService";
 import { useMutation } from "@tanstack/react-query";
-import { generatePdfFromUrl } from "../../../services/pdfService";
 
 interface UsePdfGenerationOptions {
   onSuccess?: (blob: Blob) => void;

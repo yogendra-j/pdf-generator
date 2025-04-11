@@ -11,7 +11,13 @@ export const POST = async (req: NextRequest): Promise<NextResponse> => {
       payload = await req.json();
       validatePdfRequest(payload);
     } catch (error) {
-      return NextResponse.json(error, { status: 400 });
+      return NextResponse.json(
+        {
+          message:
+            error instanceof Error ? error.message : "Unknown error occurred",
+        },
+        { status: 400 }
+      );
     }
 
     const pdfStream = await generatePdf(payload.url, env.BROWSERLESS_TOKEN);
