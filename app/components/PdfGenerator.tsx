@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePdfGeneration } from "../hooks/usePdfGeneration";
+import { usePdfGeneration } from "./pdf/hooks/usePdfGeneration";
 import UrlForm from "./UrlForm";
 
 interface PdfGeneratorProps {
