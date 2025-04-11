@@ -1,5 +1,5 @@
 import { webToNodeStream } from "@/app/utils/webToNodeStream";
-import type { Page } from "puppeteer";
+import type { Browser, Page } from "puppeteer";
 import puppeteer from "puppeteer";
 
 export const generatePdf = async (
@@ -28,10 +28,7 @@ export const generatePdf = async (
     console.log("Images loaded");
     const webStream = await createPdfStream(page);
     const [stream1, stream2] = webStream.tee();
-    const nodeStream = webToNodeStream(stream1);
-
-    nodeStream.on("end", () => browser.close().catch(console.error));
-    nodeStream.on("error", () => browser.close().catch(console.error));
+    closeBrowserOnStreamEnd(stream1, browser);
 
     return stream2;
   } catch (error) {
@@ -71,4 +68,14 @@ const createPdfStream = async (
     printBackground: true,
     landscape: true,
   });
+};
+
+const closeBrowserOnStreamEnd = (
+  stream1: ReadableStream<Uint8Array<ArrayBufferLike>>,
+  browser: Browser
+) => {
+  const nodeStream = webToNodeStream(stream1);
+
+  nodeStream.on("end", () => browser.close().catch(console.error));
+  nodeStream.on("error", () => browser.close().catch(console.error));
 };
