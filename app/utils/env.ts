@@ -8,7 +8,7 @@ const optionalEnvVars = {
 
 export const validateEnvVars = (): string[] => {
   const missingVars = Object.entries(requiredEnvVars)
-    .filter(([_, value]) => !value)
+    .filter(([, value]) => !value)
     .map(([key]) => key);
 
   return missingVars;

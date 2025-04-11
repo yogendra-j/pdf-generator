@@ -21,7 +21,7 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
 
     try {
       new URL(url);
-    } catch (error) {
+    } catch {
       setError("Please enter a valid URL");
       return;
     }

@@ -28,6 +28,7 @@ export const validatePdfRequest = (
 
   const formattedError = new Error("Validation failed");
   formattedError.name = "ValidationError";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (formattedError as any).errors = errors;
 
   throw formattedError;
