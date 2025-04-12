@@ -58,7 +58,7 @@ const getPageTitle = async (page: Page): Promise<string> => {
 };
 
 const waitForImagesLoaded = async (page: Page): Promise<void> => {
-  await scrollThroughAllImages(page);
+  await autoScroll(page);
   return page.evaluate(async () => {
     const selectors = Array.from(document.querySelectorAll("img"));
 
@@ -74,24 +74,28 @@ const waitForImagesLoaded = async (page: Page): Promise<void> => {
   });
 };
 
-const scrollThroughAllImages = async (page: Page): Promise<void> => {
-  await page.evaluate(async () => {
-    document.body.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
+const autoScroll = async (page: Page, maxScrolls = 100) => {
+  await page.evaluate(async (maxScrolls) => {
+    await new Promise((resolve) => {
+      let totalHeight = 0;
+      const distance = 100;
+      let scrolls = 0;
+      const timer = setInterval(() => {
+        const scrollHeight = document.body.scrollHeight;
+        window.scrollBy(0, distance);
+        totalHeight += distance;
+        scrolls++;
+
+        if (
+          totalHeight >= scrollHeight - window.innerHeight ||
+          scrolls >= maxScrolls
+        ) {
+          clearInterval(timer);
+          resolve("");
+        }
+      }, 10);
     });
-
-    const scrollingElement = document.scrollingElement || document.body;
-    scrollingElement.scrollTop = scrollingElement.scrollHeight;
-
-    const selectors = Array.from(document.querySelectorAll("img"));
-
-    for (const img of selectors) {
-      img.scrollIntoView();
-      await new Promise((res) => setTimeout(res, 10));
-    }
-  });
+  }, maxScrolls);
 };
 
 const createPdfStream = async (
