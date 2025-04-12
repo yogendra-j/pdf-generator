@@ -9,16 +9,36 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Download, Eye } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PdfPreview from "./PdfPreview";
 
 interface PdfPreviewerProps {
   pdfBlob: Blob | null;
   filename: string;
+  autoOpen?: boolean;
+  onDialogClose?: () => void;
 }
 
-const PdfPreviewer = ({ pdfBlob, filename }: PdfPreviewerProps) => {
+const PdfPreviewer = ({
+  pdfBlob,
+  filename,
+  autoOpen = false,
+  onDialogClose,
+}: PdfPreviewerProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
+
+  useEffect(() => {
+    if (autoOpen && pdfBlob) {
+      setDialogOpen(true);
+    }
+  }, [autoOpen, pdfBlob]);
+
+  const handleDialogChange = (open: boolean) => {
+    setDialogOpen(open);
+    if (!open && onDialogClose) {
+      onDialogClose();
+    }
+  };
 
   const handleDownload = () => {
     if (pdfBlob) {
@@ -32,7 +52,7 @@ const PdfPreviewer = ({ pdfBlob, filename }: PdfPreviewerProps) => {
 
   return (
     <div className="flex flex-col sm:flex-row gap-3 mt-8 w-full h-full">
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+      <Dialog open={dialogOpen} onOpenChange={handleDialogChange}>
         <DialogTitle className="sr-only">Preview PDF</DialogTitle>
         <DialogTrigger asChild>
           <Button
