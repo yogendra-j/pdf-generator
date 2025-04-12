@@ -1,5 +1,4 @@
 import { generatePdf } from "@/app/services/pdf-generator";
-import { ErrorResponse } from "@/app/types/pdf";
 import { env } from "@/app/utils/env";
 import { sanitizeFilename } from "@/app/utils/sanitizeFilename";
 import { validatePdfRequest } from "@/app/utils/validation";
@@ -40,10 +39,13 @@ export const POST = async (req: NextRequest): Promise<NextResponse> => {
     return response;
   } catch (error) {
     console.error(error);
-    const errorResponse: ErrorResponse = {
-      error: error instanceof Error ? error.message : "Unknown error occurred",
-    };
 
-    return NextResponse.json(errorResponse, { status: 500 });
+    return NextResponse.json(
+      {
+        message:
+          error instanceof Error ? error.message : "Unknown error occurred",
+      },
+      { status: 500 }
+    );
   }
 };
