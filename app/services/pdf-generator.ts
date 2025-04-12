@@ -91,6 +91,8 @@ const autoScroll = async (page: Page, maxScrolls = 100) => {
   }, maxScrolls);
 
   await page.evaluate(() => {
+    const scrollingElement = document.scrollingElement || document.body;
+    scrollingElement.scrollTop = scrollingElement.scrollHeight;
     window.scrollTo(0, 0);
   });
 };
