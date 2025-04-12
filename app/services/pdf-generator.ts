@@ -72,7 +72,7 @@ const waitForImagesLoaded = async (page: Page): Promise<void> => {
 
     for (const img of selectors) {
       img.scrollIntoView();
-      await new Promise((res) => setTimeout(res, 5));
+      await new Promise((res) => setTimeout(res, 10));
     }
 
     await Promise.all(
