@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-3 sm:p-6 bg-background">
+    <div className="flex flex-col items-center justify-center p-3 sm:p-6 py-8 sm:py-12 my-50">
       <div className="w-full max-w-[calc(100%-32px)] sm:max-w-lg mx-auto rounded-xl border border-border/50 bg-card/60 shadow-xl backdrop-blur-md p-4 sm:p-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none" />
 
@@ -23,6 +23,6 @@ export default function Home() {
           <PdfApp />
         </div>
       </div>
-    </main>
+    </div>
   );
 }
