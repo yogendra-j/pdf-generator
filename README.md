@@ -1,4 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PDF Generator
+
+A modern Next.js application for generating and managing PDF documents with a clean, responsive interface.
+
+## Features
+
+- PDF generation from web content
+- Document management system
+- Responsive design
+- Modern UI with shadcn components
+
+## Environment Setup
+
+The application requires the following environment variables:
+
+```
+BROWSERLESS_TOKEN=your_api_key
+```
+
+Get your API key by signing up at [Browserless](https://www.browserless.io/).
+
+## Installation
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run development server
+pnpm dev
+```
+
+## Screenshots
+
+![Screenshot 1](./public/images/screenshot-1.png)
+![Screenshot 2](./public/images/screenshot-2.png)
+
+## Technologies
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- Browserless API
 
 ## Getting Started
 
