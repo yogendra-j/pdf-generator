@@ -37,15 +37,40 @@ export const POST = async (req: NextRequest): Promise<NextResponse> => {
     );
 
     return response;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error(error);
+    return handleError(error);
+  }
+};
 
+const isRateLimitError = (error: unknown): boolean => {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message: unknown }).message === 'string' &&
+    (error as { message: string }).message.includes('429')
+  );
+};
+
+const getErrorMessage = (error: unknown): string => {
+  return error instanceof Error ? error.message : 'Unknown error occurred';
+};
+
+const handleError = (error: unknown): NextResponse => {
+  if (isRateLimitError(error)) {
     return NextResponse.json(
       {
-        message:
-          error instanceof Error ? error.message : 'Unknown error occurred',
+        message: 'Too many requests. Please try again later.',
       },
-      { status: 500 }
+      { status: 429 }
     );
   }
+
+  return NextResponse.json(
+    {
+      message: getErrorMessage(error),
+    },
+    { status: 500 }
+  );
 };
