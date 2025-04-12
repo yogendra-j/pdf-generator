@@ -61,7 +61,9 @@ const waitForImagesLoaded = async (page: Page): Promise<unknown> => {
   await autoScroll(page);
   return page.waitForFunction(
     () => {
-      return Array.from(document.images).every(i => i.complete);
+      return Array.from(document.images).every(
+        i => i.complete && i.naturalWidth > 0
+      );
     },
     { timeout: 20000 }
   );
@@ -69,17 +71,17 @@ const waitForImagesLoaded = async (page: Page): Promise<unknown> => {
 
 const autoScroll = async (page: Page) => {
   await page.evaluate(async () => {
+    const scrollingElement = document.scrollingElement || document.body;
+    scrollingElement.scrollTop = scrollingElement.scrollHeight;
     const images = document.querySelectorAll('img');
 
     for (const image of images) {
       image.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise(resolve => setTimeout(resolve, 50));
     }
   });
 
   await page.evaluate(() => {
-    const scrollingElement = document.scrollingElement || document.body;
-    scrollingElement.scrollTop = scrollingElement.scrollHeight;
     window.scrollTo(0, 0);
   });
 };
