@@ -57,21 +57,14 @@ const getPageTitle = async (page: Page): Promise<string> => {
   }
 };
 
-const waitForImagesLoaded = async (page: Page): Promise<void> => {
+const waitForImagesLoaded = async (page: Page): Promise<unknown> => {
   await autoScroll(page);
-  return page.evaluate(async () => {
-    const selectors = Array.from(document.querySelectorAll("img"));
-
-    await Promise.all(
-      selectors.map((img) => {
-        if (img.complete) return;
-        return new Promise((resolve, reject) => {
-          img.addEventListener("load", resolve);
-          img.addEventListener("error", reject);
-        });
-      })
-    );
-  });
+  return page.waitForFunction(
+    () => {
+      return Array.from(document.images).every((i) => i.complete);
+    },
+    { timeout: 20000 }
+  );
 };
 
 const autoScroll = async (page: Page, maxScrolls = 100) => {
