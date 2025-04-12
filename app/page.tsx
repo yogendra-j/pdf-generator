@@ -12,7 +12,7 @@ export default function Home() {
       <div className="w-full max-w-lg mx-auto rounded-xl border border-border/50 bg-card/60 shadow-xl backdrop-blur-md p-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none" />
 
-        <div className="relative z-10 min-h-80">
+        <div className="relative z-10 min-h-70">
           <h1 className="text-4xl font-bold text-center mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             PDF Generator
           </h1>
