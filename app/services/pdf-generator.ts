@@ -59,12 +59,22 @@ const getPageTitle = async (page: Page): Promise<string> => {
 
 const waitForImagesLoaded = async (page: Page): Promise<unknown> => {
   await autoScroll(page);
+  await removeLazyLoading(page);
   return page.waitForFunction(
     () => {
       return Array.from(document.images).every(i => i.complete);
     },
     { timeout: 20000 }
   );
+};
+
+const removeLazyLoading = async (page: Page) => {
+  await page.evaluate(() => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      img.removeAttribute('loading');
+    });
+  });
 };
 
 const autoScroll = async (page: Page) => {
