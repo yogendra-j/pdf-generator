@@ -31,7 +31,7 @@ const PdfPreviewer = ({ pdfBlob, filename }: PdfPreviewerProps) => {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-3 mt-8 w-full">
+    <div className="flex flex-col sm:flex-row gap-3 mt-8 w-full h-full">
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogTitle className="sr-only">Preview PDF</DialogTitle>
         <DialogTrigger asChild>
@@ -43,7 +43,7 @@ const PdfPreviewer = ({ pdfBlob, filename }: PdfPreviewerProps) => {
             Preview PDF
           </Button>
         </DialogTrigger>
-        <DialogContent className="flex justify-center items-center bg-card/90 backdrop-blur-md max-w-4xl w-[90vw] p-1 sm:p-4">
+        <DialogContent className="flex justify-center items-center bg-card/10 backdrop-blur-md w-fit h-fit p-12 sm:max-w-dvw sm:max-h-none">
           <PdfPreview
             pdfBlob={pdfBlob}
             onDownload={handleDownload}
