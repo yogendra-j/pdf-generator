@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: 'Generate PDF from URL',
     images: [
       {
-        url: '/public/pdf-generator.png',
+        url: '/pdf-generator.png',
         width: 1200,
         height: 630,
         alt: 'Generate PDF',
