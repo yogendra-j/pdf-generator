@@ -89,6 +89,10 @@ const autoScroll = async (page: Page, maxScrolls = 100) => {
       }, 10);
     });
   }, maxScrolls);
+
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+  });
 };
 
 const createPdfStream = async (
