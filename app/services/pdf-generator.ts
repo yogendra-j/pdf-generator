@@ -58,7 +58,24 @@ const getPageTitle = async (page: Page): Promise<string> => {
 };
 
 const waitForImagesLoaded = async (page: Page): Promise<void> => {
+  await scrollThroughAllImages(page);
   return page.evaluate(async () => {
+    const selectors = Array.from(document.querySelectorAll("img"));
+
+    await Promise.all(
+      selectors.map((img) => {
+        if (img.complete) return;
+        return new Promise((resolve, reject) => {
+          img.addEventListener("load", resolve);
+          img.addEventListener("error", reject);
+        });
+      })
+    );
+  });
+};
+
+const scrollThroughAllImages = async (page: Page): Promise<void> => {
+  await page.evaluate(async () => {
     document.body.scrollIntoView({
       behavior: "smooth",
       block: "end",
@@ -74,16 +91,6 @@ const waitForImagesLoaded = async (page: Page): Promise<void> => {
       img.scrollIntoView();
       await new Promise((res) => setTimeout(res, 10));
     }
-
-    await Promise.all(
-      selectors.map((img) => {
-        if (img.complete) return;
-        return new Promise((resolve, reject) => {
-          img.addEventListener("load", resolve);
-          img.addEventListener("error", reject);
-        });
-      })
-    );
   });
 };
 
