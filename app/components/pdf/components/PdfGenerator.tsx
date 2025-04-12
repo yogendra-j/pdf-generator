@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import UrlForm from "@/app/components/pdf/components/UrlForm";
-import { usePdfGeneration } from "@/app/components/pdf/hooks/usePdfGeneration";
-import axios from "axios";
+import UrlForm from '@/app/components/pdf/components/UrlForm';
+import { usePdfGeneration } from '@/app/components/pdf/hooks/usePdfGeneration';
+import axios from 'axios';
 
 interface PdfGeneratorProps {
   onPdfGenerated: (blob: Blob | null, filename: string) => void;
@@ -10,13 +10,13 @@ interface PdfGeneratorProps {
 
 const PdfGenerator = ({ onPdfGenerated }: PdfGeneratorProps) => {
   const { generatePdf, isLoading, reset, error } = usePdfGeneration({
-    onSuccess: (response) => {
+    onSuccess: response => {
       onPdfGenerated(response.blob, response.filename);
     },
   });
 
   const handleGeneratePdf = (url: string) => {
-    onPdfGenerated(null, "");
+    onPdfGenerated(null, '');
     reset();
     generatePdf(url);
   };

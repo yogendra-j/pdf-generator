@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import PdfControls from "@/app/components/pdf/components/PdfControls";
-import PdfHeader from "@/app/components/pdf/components/PdfHeader";
-import PdfViewer from "@/app/components/pdf/components/PdfViewer";
-import usePdfNavigation from "@/app/components/pdf/hooks/usePdfNavigation";
-import usePdfUrl from "@/app/components/pdf/hooks/usePdfUrl";
-import usePdfZoom from "@/app/components/pdf/hooks/usePdfZoom";
-import "@/app/components/pdf/pdfjs-config";
-import { Loader } from "lucide-react";
-import { useEffect, useState } from "react";
+import PdfControls from '@/app/components/pdf/components/PdfControls';
+import PdfHeader from '@/app/components/pdf/components/PdfHeader';
+import PdfViewer from '@/app/components/pdf/components/PdfViewer';
+import usePdfNavigation from '@/app/components/pdf/hooks/usePdfNavigation';
+import usePdfUrl from '@/app/components/pdf/hooks/usePdfUrl';
+import usePdfZoom from '@/app/components/pdf/hooks/usePdfZoom';
+import '@/app/components/pdf/pdfjs-config';
+import { Loader } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 interface PdfPreviewProps {
   pdfBlob: Blob;
@@ -19,7 +19,7 @@ interface PdfPreviewProps {
 const PdfPreview = ({
   pdfBlob,
   onDownload,
-  filename = "document.pdf",
+  filename = 'document.pdf',
 }: PdfPreviewProps) => {
   const [numPages, setNumPages] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);

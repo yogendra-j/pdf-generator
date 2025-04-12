@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import PdfGenerator from "@/app/components/pdf/components/PdfGenerator";
-import PdfPreviewer from "@/app/components/pdf/components/PdfPreviewer";
-import { useState } from "react";
+import PdfGenerator from '@/app/components/pdf/components/PdfGenerator';
+import PdfPreviewer from '@/app/components/pdf/components/PdfPreviewer';
+import { useState } from 'react';
 
 const PdfApp = () => {
   const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
-  const [filename, setFilename] = useState<string>("download.pdf");
+  const [filename, setFilename] = useState<string>('download.pdf');
   const [autoPreview, setAutoPreview] = useState(false);
 
   const handlePdfGenerated = (blob: Blob | null, name: string) => {

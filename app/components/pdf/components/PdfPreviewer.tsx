@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { downloadPdf } from "@/app/services/pdfService";
-import { Button } from "@/components/ui/button";
+import { downloadPdf } from '@/app/services/pdfService';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Download, Eye } from "lucide-react";
-import { useEffect, useState } from "react";
-import PdfPreview from "./PdfPreview";
+} from '@/components/ui/dialog';
+import { Download, Eye } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import PdfPreview from './PdfPreview';
 
 interface PdfPreviewerProps {
   pdfBlob: Blob | null;

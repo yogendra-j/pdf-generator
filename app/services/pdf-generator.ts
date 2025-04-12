@@ -1,6 +1,6 @@
-import { webToNodeStream } from "@/app/utils/webToNodeStream";
-import type { Browser, Page } from "puppeteer";
-import puppeteer from "puppeteer";
+import { webToNodeStream } from '@/app/utils/webToNodeStream';
+import type { Browser, Page } from 'puppeteer';
+import puppeteer from 'puppeteer';
 
 export interface PdfGenerationResult {
   pdfStream: ReadableStream<Uint8Array>;
@@ -12,7 +12,7 @@ export const generatePdf = async (
   browserlessToken: string
 ): Promise<PdfGenerationResult> => {
   if (!browserlessToken) {
-    throw new Error("Browserless token is required");
+    throw new Error('Browserless token is required');
   }
 
   const browser = await puppeteer.connect({
@@ -24,13 +24,13 @@ export const generatePdf = async (
 
     await page.setViewport({ width: 1280, height: 1024 });
 
-    await page.goto(url, { waitUntil: "load" });
-    console.log("Waiting for images to load");
+    await page.goto(url, { waitUntil: 'load' });
+    console.log('Waiting for images to load');
     await Promise.race([
       waitForImagesLoaded(page),
-      new Promise((resolve) => setTimeout(() => resolve(undefined), 30000)),
+      new Promise(resolve => setTimeout(() => resolve(undefined), 30000)),
     ]);
-    console.log("Images loaded");
+    console.log('Images loaded');
 
     const title = await getPageTitle(page);
     const webStream = await createPdfStream(page);
@@ -50,10 +50,10 @@ export const generatePdf = async (
 const getPageTitle = async (page: Page): Promise<string> => {
   try {
     const title = await page.title();
-    return title || "download";
+    return title || 'download';
   } catch (error) {
-    console.error("Error getting page title:", error);
-    return "download";
+    console.error('Error getting page title:', error);
+    return 'download';
   }
 };
 
@@ -61,15 +61,15 @@ const waitForImagesLoaded = async (page: Page): Promise<unknown> => {
   await autoScroll(page);
   return page.waitForFunction(
     () => {
-      return Array.from(document.images).every((i) => i.complete);
+      return Array.from(document.images).every(i => i.complete);
     },
     { timeout: 20000 }
   );
 };
 
 const autoScroll = async (page: Page, maxScrolls = 100) => {
-  await page.evaluate(async (maxScrolls) => {
-    await new Promise((resolve) => {
+  await page.evaluate(async maxScrolls => {
+    await new Promise(resolve => {
       let totalHeight = 0;
       const distance = 100;
       let scrolls = 0;
@@ -84,7 +84,7 @@ const autoScroll = async (page: Page, maxScrolls = 100) => {
           scrolls >= maxScrolls
         ) {
           clearInterval(timer);
-          resolve("");
+          resolve('');
         }
       }, 10);
     });
@@ -99,7 +99,7 @@ const createPdfStream = async (
   page: Page
 ): Promise<ReadableStream<Uint8Array>> => {
   return page.createPDFStream({
-    format: "A4",
+    format: 'A4',
     height: 1024,
     width: 1280,
     printBackground: true,
@@ -113,6 +113,6 @@ const closeBrowserOnStreamEnd = (
 ) => {
   const nodeStream = webToNodeStream(stream1);
 
-  nodeStream.on("end", () => browser.close().catch(console.error));
-  nodeStream.on("error", () => browser.close().catch(console.error));
+  nodeStream.on('end', () => browser.close().catch(console.error));
+  nodeStream.on('error', () => browser.close().catch(console.error));
 };

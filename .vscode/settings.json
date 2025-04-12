@@ -1,8 +1,5 @@
 {
-    "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true,
-    "cSpell.words": [
-        "BROWSERLESS",
-        "domcontentloaded"
-    ]
+  "IDX.aI.enableInlineCompletion": true,
+  "IDX.aI.enableCodebaseIndexing": true,
+  "cSpell.words": ["BROWSERLESS", "domcontentloaded"]
 }

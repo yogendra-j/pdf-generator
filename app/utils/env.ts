@@ -1,9 +1,9 @@
 const requiredEnvVars = {
-  BROWSERLESS_TOKEN: process.env.BROWSERLESS_TOKEN || "",
+  BROWSERLESS_TOKEN: process.env.BROWSERLESS_TOKEN || '',
 } as const;
 
 const optionalEnvVars = {
-  NODE_ENV: process.env.NODE_ENV || "development",
+  NODE_ENV: process.env.NODE_ENV || 'development',
 } as const;
 
 export const validateEnvVars = (): string[] => {
@@ -17,7 +17,7 @@ export const validateEnvVars = (): string[] => {
 const missingVars = validateEnvVars();
 if (missingVars.length > 0) {
   throw new Error(
-    `Missing required environment variables: ${missingVars.join(", ")}`
+    `Missing required environment variables: ${missingVars.join(', ')}`
   );
 }
 

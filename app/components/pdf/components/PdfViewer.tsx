@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Loader } from "lucide-react";
-import { Document, Page } from "react-pdf";
+import { Loader } from 'lucide-react';
+import { Document, Page } from 'react-pdf';
 
 interface PdfViewerProps {
   url: string;

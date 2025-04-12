@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const API_BASE_URL = "/api";
+const API_BASE_URL = '/api';
 
 export interface PdfResponse {
   blob: Blob;
@@ -8,10 +8,10 @@ export interface PdfResponse {
 }
 
 const extractFilename = (contentDisposition: string | null): string => {
-  if (!contentDisposition) return "download.pdf";
+  if (!contentDisposition) return 'download.pdf';
 
   const filenameMatch = contentDisposition.match(/filename="([^"]+)"/);
-  return filenameMatch ? filenameMatch[1] : "download.pdf";
+  return filenameMatch ? filenameMatch[1] : 'download.pdf';
 };
 
 export const generatePdfFromUrl = async (url: string): Promise<PdfResponse> => {
@@ -20,14 +20,14 @@ export const generatePdfFromUrl = async (url: string): Promise<PdfResponse> => {
       `${API_BASE_URL}/generate-pdf`,
       { url },
       {
-        responseType: "blob",
+        responseType: 'blob',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       }
     );
 
-    const contentDisposition = response.headers["content-disposition"];
+    const contentDisposition = response.headers['content-disposition'];
     const filename = extractFilename(contentDisposition);
 
     return {
@@ -40,14 +40,14 @@ export const generatePdfFromUrl = async (url: string): Promise<PdfResponse> => {
       const json = JSON.parse(text);
       throw new Error(json.message);
     } else {
-      throw new Error("Unexpected error");
+      throw new Error('Unexpected error');
     }
   }
 };
 
-export const downloadPdf = (blob: Blob, filename = "download.pdf"): void => {
+export const downloadPdf = (blob: Blob, filename = 'download.pdf'): void => {
   const fileUrl = URL.createObjectURL(blob);
-  const link = document.createElement("a");
+  const link = document.createElement('a');
   link.href = fileUrl;
   link.download = filename;
   document.body.appendChild(link);

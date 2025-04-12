@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { QuirkyLoader } from "@/app/components/common/QuirkyLoader";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
-import { LinkIcon } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { QuirkyLoader } from '@/app/components/common/QuirkyLoader';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@radix-ui/react-label';
+import { LinkIcon } from 'lucide-react';
+import { FormEvent, useState } from 'react';
 
 interface UrlFormProps {
   onSubmit: (url: string) => void;
@@ -13,7 +13,7 @@ interface UrlFormProps {
 }
 
 const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
@@ -22,7 +22,7 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
     try {
       new URL(url);
     } catch {
-      setError("Please enter a valid URL");
+      setError('Please enter a valid URL');
       return;
     }
 
@@ -45,11 +45,11 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
             type="text"
             placeholder="https://example.com"
             value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={e => setUrl(e.target.value)}
             className={`pl-10 h-11 ${
               error
-                ? "border-destructive"
-                : "border-input focus:border-primary/50"
+                ? 'border-destructive'
+                : 'border-input focus:border-primary/50'
             }`}
             disabled={isLoading}
           />
@@ -67,11 +67,11 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
         disabled={isLoading}
         className={`w-full h-11 font-medium transition-all duration-300 ${
           isLoading
-            ? "bg-secondary/90 text-primary-foreground ring-1 ring-primary/20 hover:bg-secondary"
-            : ""
+            ? 'bg-secondary/90 text-primary-foreground ring-1 ring-primary/20 hover:bg-secondary'
+            : ''
         }`}
       >
-        {isLoading ? <QuirkyLoader.ButtonContent /> : "Generate PDF"}
+        {isLoading ? <QuirkyLoader.ButtonContent /> : 'Generate PDF'}
       </Button>
     </form>
   );

@@ -1,5 +1,5 @@
-import PdfNavigationControls from "@/app/components/pdf/components/PdfNavigationControls";
-import PdfZoomControls from "@/app/components/pdf/components/PdfZoomControls";
+import PdfNavigationControls from '@/app/components/pdf/components/PdfNavigationControls';
+import PdfZoomControls from '@/app/components/pdf/components/PdfZoomControls';
 
 interface PdfControlsProps {
   pageNumber: number;

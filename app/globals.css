@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -54,10 +54,10 @@
   --popover: oklch(0.28 0.05 250);
   --popover-foreground: oklch(0.98 0.005 240);
 
-  --primary: oklch(0.70 0.25 280);
+  --primary: oklch(0.7 0.25 280);
   --primary-foreground: oklch(0.15 0.02 240);
 
-  --secondary: oklch(0.60 0.20 190);
+  --secondary: oklch(0.6 0.2 190);
   --secondary-foreground: oklch(0.15 0.02 240);
 
   --muted: oklch(0.32 0.08 245);
@@ -66,28 +66,28 @@
   --accent: oklch(0.65 0.28 330);
   --accent-foreground: oklch(0.15 0.02 240);
 
-  --destructive: oklch(0.75 0.30 30);
+  --destructive: oklch(0.75 0.3 30);
   --destructive-foreground: oklch(0.98 0.005 240);
 
-  --border: oklch(0.42 0.10 260);
+  --border: oklch(0.42 0.1 260);
   --input: oklch(0.35 0.08 245);
   --ring: oklch(0.68 0.25 290);
 
   /* Chart Colors - Super Vibrant */
-  --chart-1: oklch(0.70 0.30 280);
+  --chart-1: oklch(0.7 0.3 280);
   --chart-2: oklch(0.68 0.28 200);
   --chart-3: oklch(0.75 0.26 160);
-  --chart-4: oklch(0.72 0.30 100);
+  --chart-4: oklch(0.72 0.3 100);
   --chart-5: oklch(0.68 0.28 330);
 
   /* Sidebar Colors */
   --sidebar: oklch(0.18 0.04 260);
   --sidebar-foreground: oklch(0.98 0.005 240);
-  --sidebar-primary: oklch(0.70 0.30 280);
+  --sidebar-primary: oklch(0.7 0.3 280);
   --sidebar-primary-foreground: oklch(0.15 0.02 240);
   --sidebar-accent: oklch(0.65 0.28 330);
   --sidebar-accent-foreground: oklch(0.15 0.02 240);
-  --sidebar-border: oklch(0.42 0.10 260);
+  --sidebar-border: oklch(0.42 0.1 260);
   --sidebar-ring: oklch(0.68 0.25 290);
 }
 
@@ -101,10 +101,10 @@
   --popover: oklch(0.28 0.05 250);
   --popover-foreground: oklch(0.98 0.005 240);
 
-  --primary: oklch(0.70 0.25 280);
+  --primary: oklch(0.7 0.25 280);
   --primary-foreground: oklch(0.15 0.02 240);
 
-  --secondary: oklch(0.60 0.20 190);
+  --secondary: oklch(0.6 0.2 190);
   --secondary-foreground: oklch(0.15 0.02 240);
 
   --muted: oklch(0.32 0.08 245);
@@ -113,27 +113,27 @@
   --accent: oklch(0.65 0.28 330);
   --accent-foreground: oklch(0.94 0.0321 286);
 
-  --destructive: oklch(0.75 0.30 30);
+  --destructive: oklch(0.75 0.3 30);
   --destructive-foreground: oklch(0.98 0.005 240);
 
-  --border: oklch(0.42 0.10 260);
+  --border: oklch(0.42 0.1 260);
   --input: oklch(0.35 0.08 245);
   --ring: oklch(0.68 0.25 290);
 
   /* Chart Colors - Super Vibrant */
-  --chart-1: oklch(0.70 0.30 280);
+  --chart-1: oklch(0.7 0.3 280);
   --chart-2: oklch(0.68 0.28 200);
   --chart-3: oklch(0.75 0.26 160);
-  --chart-4: oklch(0.72 0.30 100);
+  --chart-4: oklch(0.72 0.3 100);
   --chart-5: oklch(0.68 0.28 330);
 
   --sidebar: oklch(0.18 0.04 260);
   --sidebar-foreground: oklch(0.98 0.005 240);
-  --sidebar-primary: oklch(0.70 0.30 280);
+  --sidebar-primary: oklch(0.7 0.3 280);
   --sidebar-primary-foreground: oklch(0.15 0.02 240);
   --sidebar-accent: oklch(0.65 0.28 330);
   --sidebar-accent-foreground: oklch(0.15 0.02 240);
-  --sidebar-border: oklch(0.42 0.10 260);
+  --sidebar-border: oklch(0.42 0.1 260);
   --sidebar-ring: oklch(0.68 0.25 290);
 }
 
@@ -190,7 +190,6 @@
 }
 
 @keyframes funkyFloatY {
-
   0%,
   100% {
     transform: translateY(0);
@@ -218,17 +217,38 @@
 /* Funky background patterns */
 body {
   background-image:
-    radial-gradient(circle at 10% 10%, rgba(130, 80, 255, 0.15), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(250, 70, 180, 0.1), transparent 35%),
-    radial-gradient(circle at 40% 70%, rgba(80, 210, 255, 0.12), transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(255, 150, 30, 0.08), transparent 35%),
-    conic-gradient(from 225deg at 50% 50%, rgba(255, 70, 120, 0.05), rgba(70, 80, 255, 0.05) 50%, rgba(70, 255, 200, 0.05) 100%);
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(130, 80, 255, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(250, 70, 180, 0.1),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 40% 70%,
+      rgba(80, 210, 255, 0.12),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(255, 150, 30, 0.08),
+      transparent 35%
+    ),
+    conic-gradient(
+      from 225deg at 50% 50%,
+      rgba(255, 70, 120, 0.05),
+      rgba(70, 80, 255, 0.05) 50%,
+      rgba(70, 255, 200, 0.05) 100%
+    );
   background-attachment: fixed;
   position: relative;
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   top: 0;
   left: 0;

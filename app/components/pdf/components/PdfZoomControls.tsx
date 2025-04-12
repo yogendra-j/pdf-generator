@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { ZoomIn, ZoomOut } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { ZoomIn, ZoomOut } from 'lucide-react';
 
 interface PdfZoomControlsProps {
   scale: number;

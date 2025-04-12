@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Loader2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 interface LoadingMessage {
   text: string;
@@ -9,20 +9,20 @@ interface LoadingMessage {
 }
 
 const funnyLoadingMessages: LoadingMessage[] = [
-  { text: "Turning pixels into paper", emoji: "🖼️" },
-  { text: "Converting web to dead trees", emoji: "🌲" },
-  { text: "Asking the internet nicely to pose for a picture", emoji: "📸" },
-  { text: "Squeezing the internet into a PDF", emoji: "🤏" },
-  { text: "Folding the web into origami", emoji: "📄" },
-  { text: "Teaching robots to screenshot", emoji: "🤖" },
-  { text: "Bribing electrons to stay still for a portrait", emoji: "⚡" },
-  { text: "Convincing HTML to behave for once", emoji: "🧘" },
-  { text: "PDF-ifying at ludicrous speed", emoji: "🚀" },
-  { text: "Making your content more portable", emoji: "💼" },
-  { text: "Applying digital alchemy", emoji: "✨" },
+  { text: 'Turning pixels into paper', emoji: '🖼️' },
+  { text: 'Converting web to dead trees', emoji: '🌲' },
+  { text: 'Asking the internet nicely to pose for a picture', emoji: '📸' },
+  { text: 'Squeezing the internet into a PDF', emoji: '🤏' },
+  { text: 'Folding the web into origami', emoji: '📄' },
+  { text: 'Teaching robots to screenshot', emoji: '🤖' },
+  { text: 'Bribing electrons to stay still for a portrait', emoji: '⚡' },
+  { text: 'Convincing HTML to behave for once', emoji: '🧘' },
+  { text: 'PDF-ifying at ludicrous speed', emoji: '🚀' },
+  { text: 'Making your content more portable', emoji: '💼' },
+  { text: 'Applying digital alchemy', emoji: '✨' },
   {
-    text: "Telling CSS to sit in the corner and think about what it did",
-    emoji: "🤔",
+    text: 'Telling CSS to sit in the corner and think about what it did',
+    emoji: '🤔',
   },
 ];
 
@@ -36,14 +36,14 @@ const useQuirkyLoader = () => {
       setShowMessage(false);
       setTimeout(() => {
         setLoadingMsgIndex(
-          (prevIndex) => (prevIndex + 1) % funnyLoadingMessages.length
+          prevIndex => (prevIndex + 1) % funnyLoadingMessages.length
         );
         setShowMessage(true);
       }, 300);
     }, 4000);
 
     const progressInterval = setInterval(() => {
-      setLoadingProgress((prev) => {
+      setLoadingProgress(prev => {
         const newProgress = prev + 1;
         return newProgress > 100 ? 0 : newProgress;
       });
@@ -82,13 +82,13 @@ const ButtonContent = () => {
         <div className="absolute -left-7">
           <Loader2
             className={`h-5 w-5 animate-spin mr-2 text-background ${
-              showMessage ? "opacity-100" : "opacity-50"
+              showMessage ? 'opacity-100' : 'opacity-50'
             }`}
           />
         </div>
         <div
           className={`flex items-center transition-opacity duration-300 ${
-            showMessage ? "opacity-100" : "opacity-0"
+            showMessage ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <span className="mr-2 text-xl">{currentMessage.emoji}</span>

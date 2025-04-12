@@ -1,9 +1,9 @@
-import PdfApp from "@/app/components/pdf/components/PdfApp";
-import { Metadata } from "next";
+import PdfApp from '@/app/components/pdf/components/PdfApp';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Home | PDF Generator",
-  description: "Generate PDF from URL.",
+  title: 'Home | PDF Generator',
+  description: 'Generate PDF from URL.',
 };
 
 export default function Home() {
