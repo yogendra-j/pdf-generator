@@ -61,9 +61,7 @@ const waitForImagesLoaded = async (page: Page): Promise<unknown> => {
   await autoScroll(page);
   return page.waitForFunction(
     () => {
-      return Array.from(document.images).every(
-        i => i.complete && i.naturalWidth > 0
-      );
+      return Array.from(document.images).every(i => i.complete);
     },
     { timeout: 20000 }
   );
