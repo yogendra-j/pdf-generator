@@ -64,9 +64,9 @@ const QuirkyLoader = () => {
   const { loadingProgress } = useQuirkyLoader();
 
   return (
-    <div className="w-full bg-secondary h-1.5 rounded-full mb-3 overflow-hidden">
+    <div className="w-full bg-secondary/30 h-2 rounded-full mb-3 overflow-hidden">
       <div
-        className="h-full bg-primary transition-all duration-200 ease-in-out"
+        className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-200 ease-in-out"
         style={{ width: `${loadingProgress}%` }}
       ></div>
     </div>
@@ -81,7 +81,7 @@ const ButtonContent = () => {
       <div className="relative flex items-center">
         <div className="absolute -left-7">
           <Loader2
-            className={`h-5 w-5 animate-spin mr-2 ${
+            className={`h-5 w-5 animate-spin mr-2 text-background ${
               showMessage ? "opacity-100" : "opacity-50"
             }`}
           />
@@ -92,7 +92,7 @@ const ButtonContent = () => {
           }`}
         >
           <span className="mr-2 text-xl">{currentMessage.emoji}</span>
-          <span>{currentMessage.text}...</span>
+          <span className="font-medium">{currentMessage.text}...</span>
         </div>
       </div>
     </div>

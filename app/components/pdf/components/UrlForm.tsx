@@ -67,7 +67,7 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
         disabled={isLoading}
         className={`w-full h-11 font-medium transition-all duration-300 ${
           isLoading
-            ? "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+            ? "bg-secondary/90 text-primary-foreground ring-1 ring-primary/20 hover:bg-secondary"
             : ""
         }`}
       >

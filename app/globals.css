@@ -45,99 +45,96 @@
 
 :root {
   --radius: 0.625rem;
-  /* Dark Theme Colors - Modern & Elegant */
-  --background: oklch(0.25 0.025 235);
+  --background: oklch(0.22 0.03 240);
   --foreground: oklch(0.98 0.005 240);
 
-  --card: oklch(0.3 0.03 240);
+  --card: oklch(0.28 0.05 250);
   --card-foreground: oklch(0.98 0.005 240);
 
-  --popover: oklch(0.3 0.03 240);
+  --popover: oklch(0.28 0.05 250);
   --popover-foreground: oklch(0.98 0.005 240);
 
-  --primary: oklch(0.65 0.2 255);
-  --primary-foreground: oklch(0.98 0.005 240);
+  --primary: oklch(0.70 0.25 280);
+  --primary-foreground: oklch(0.15 0.02 240);
 
-  --secondary: oklch(0.35 0.04 245);
-  --secondary-foreground: oklch(0.98 0.005 240);
+  --secondary: oklch(0.60 0.20 190);
+  --secondary-foreground: oklch(0.15 0.02 240);
 
-  --muted: oklch(0.32 0.03 245);
-  --muted-foreground: oklch(0.75 0.05 245);
+  --muted: oklch(0.32 0.08 245);
+  --muted-foreground: oklch(0.82 0.07 245);
 
-  --accent: oklch(0.5 0.15 280);
-  --accent-foreground: oklch(0.98 0.005 240);
+  --accent: oklch(0.65 0.28 330);
+  --accent-foreground: oklch(0.15 0.02 240);
 
-  --destructive: oklch(0.7 0.22 30);
+  --destructive: oklch(0.75 0.30 30);
   --destructive-foreground: oklch(0.98 0.005 240);
 
-  --border: oklch(0.38 0.04 242);
-  --input: oklch(0.32 0.03 242);
-  --ring: oklch(0.55 0.17 255);
+  --border: oklch(0.42 0.10 260);
+  --input: oklch(0.35 0.08 245);
+  --ring: oklch(0.68 0.25 290);
 
-  /* Chart Colors - Vibrant yet cohesive */
-  --chart-1: oklch(0.65 0.2 255);
-  --chart-2: oklch(0.62 0.18 200);
-  --chart-3: oklch(0.62 0.17 160);
-  --chart-4: oklch(0.59 0.2 100);
-  --chart-5: oklch(0.63 0.16 320);
+  /* Chart Colors - Super Vibrant */
+  --chart-1: oklch(0.70 0.30 280);
+  --chart-2: oklch(0.68 0.28 200);
+  --chart-3: oklch(0.75 0.26 160);
+  --chart-4: oklch(0.72 0.30 100);
+  --chart-5: oklch(0.68 0.28 330);
 
   /* Sidebar Colors */
-  --sidebar: oklch(0.22 0.02 235);
+  --sidebar: oklch(0.18 0.04 260);
   --sidebar-foreground: oklch(0.98 0.005 240);
-  --sidebar-primary: oklch(0.65 0.2 255);
-  --sidebar-primary-foreground: oklch(0.98 0.005 240);
-  --sidebar-accent: oklch(0.5 0.15 280);
-  --sidebar-accent-foreground: oklch(0.98 0.005 240);
-  --sidebar-border: oklch(0.38 0.04 242);
-  --sidebar-ring: oklch(0.55 0.17 255);
+  --sidebar-primary: oklch(0.70 0.30 280);
+  --sidebar-primary-foreground: oklch(0.15 0.02 240);
+  --sidebar-accent: oklch(0.65 0.28 330);
+  --sidebar-accent-foreground: oklch(0.15 0.02 240);
+  --sidebar-border: oklch(0.42 0.10 260);
+  --sidebar-ring: oklch(0.68 0.25 290);
 }
 
-/* Since we're only using dark theme, we keep the same values for both */
 .dark {
-  --background: oklch(0.25 0.025 235);
+  --background: oklch(0.22 0.03 240);
   --foreground: oklch(0.98 0.005 240);
 
-  --card: oklch(0.3 0.03 240);
+  --card: oklch(0.28 0.05 250);
   --card-foreground: oklch(0.98 0.005 240);
 
-  --popover: oklch(0.3 0.03 240);
+  --popover: oklch(0.28 0.05 250);
   --popover-foreground: oklch(0.98 0.005 240);
 
-  --primary: oklch(0.65 0.2 255);
-  --primary-foreground: oklch(0.98 0.005 240);
+  --primary: oklch(0.70 0.25 280);
+  --primary-foreground: oklch(0.15 0.02 240);
 
-  --secondary: oklch(0.35 0.04 245);
-  --secondary-foreground: oklch(0.98 0.005 240);
+  --secondary: oklch(0.60 0.20 190);
+  --secondary-foreground: oklch(0.15 0.02 240);
 
-  --muted: oklch(0.32 0.03 245);
-  --muted-foreground: oklch(0.75 0.05 245);
+  --muted: oklch(0.32 0.08 245);
+  --muted-foreground: oklch(0.82 0.07 245);
 
-  --accent: oklch(0.5 0.15 280);
-  --accent-foreground: oklch(0.98 0.005 240);
+  --accent: oklch(0.65 0.28 330);
+  --accent-foreground: oklch(0.15 0.02 240);
 
-  --destructive: oklch(0.7 0.22 30);
+  --destructive: oklch(0.75 0.30 30);
   --destructive-foreground: oklch(0.98 0.005 240);
 
-  --border: oklch(0.38 0.04 242);
-  --input: oklch(0.32 0.03 242);
-  --ring: oklch(0.55 0.17 255);
+  --border: oklch(0.42 0.10 260);
+  --input: oklch(0.35 0.08 245);
+  --ring: oklch(0.68 0.25 290);
 
-  /* Chart Colors - Vibrant yet cohesive */
-  --chart-1: oklch(0.65 0.2 255);
-  --chart-2: oklch(0.62 0.18 200);
-  --chart-3: oklch(0.62 0.17 160);
-  --chart-4: oklch(0.59 0.2 100);
-  --chart-5: oklch(0.63 0.16 320);
+  /* Chart Colors - Super Vibrant */
+  --chart-1: oklch(0.70 0.30 280);
+  --chart-2: oklch(0.68 0.28 200);
+  --chart-3: oklch(0.75 0.26 160);
+  --chart-4: oklch(0.72 0.30 100);
+  --chart-5: oklch(0.68 0.28 330);
 
-  /* Sidebar Colors */
-  --sidebar: oklch(0.22 0.02 235);
+  --sidebar: oklch(0.18 0.04 260);
   --sidebar-foreground: oklch(0.98 0.005 240);
-  --sidebar-primary: oklch(0.65 0.2 255);
-  --sidebar-primary-foreground: oklch(0.98 0.005 240);
-  --sidebar-accent: oklch(0.5 0.15 280);
-  --sidebar-accent-foreground: oklch(0.98 0.005 240);
-  --sidebar-border: oklch(0.38 0.04 242);
-  --sidebar-ring: oklch(0.55 0.17 255);
+  --sidebar-primary: oklch(0.70 0.30 280);
+  --sidebar-primary-foreground: oklch(0.15 0.02 240);
+  --sidebar-accent: oklch(0.65 0.28 330);
+  --sidebar-accent-foreground: oklch(0.15 0.02 240);
+  --sidebar-border: oklch(0.42 0.10 260);
+  --sidebar-ring: oklch(0.68 0.25 290);
 }
 
 @layer base {
@@ -148,11 +145,146 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Funky button styles */
+  button,
+  .btn {
+    @apply transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+
+  /* Funky input focus effects */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply ring-2 ring-primary/70 transition-shadow duration-300;
+  }
 }
 
-/* Add background gradients with regular CSS */
+/* Funky animations */
+@keyframes funkyGlow {
+  0% {
+    filter: drop-shadow(0 0 2px var(--primary));
+  }
+
+  33% {
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
+
+  66% {
+    filter: drop-shadow(0 0 5px var(--secondary));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 2px var(--primary));
+  }
+}
+
+@keyframes funkyRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes funkyFloatY {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes funkyHueRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(180deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Funky background patterns */
 body {
   background-image:
-    radial-gradient(ellipse at top, rgba(100, 100, 255, 0.1), transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(150, 100, 255, 0.1), transparent 70%);
+    radial-gradient(circle at 10% 10%, rgba(130, 80, 255, 0.15), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(250, 70, 180, 0.1), transparent 35%),
+    radial-gradient(circle at 40% 70%, rgba(80, 210, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(255, 150, 30, 0.08), transparent 35%),
+    conic-gradient(from 225deg at 50% 50%, rgba(255, 70, 120, 0.05), rgba(70, 80, 255, 0.05) 50%, rgba(70, 255, 200, 0.05) 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow:
+    0 10px 25px -5px rgba(var(--primary), 0.3),
+    0 5px 15px -5px rgba(var(--accent), 0.4);
+  animation: funkyGlow 3s infinite;
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translate(-50%, -50%) scale(0);
+  animation: funkyButtonPulse 2s infinite;
+}
+
+@keyframes funkyButtonPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-spin {
+  filter: drop-shadow(0 0 2px var(--primary-foreground));
+}
+
+.bg-gradient-to-r.from-primary.to-accent {
+  box-shadow: 0 0 10px 1px var(--primary);
 }
