@@ -28,7 +28,7 @@ export const generatePdf = async (
     console.log("Waiting for images to load");
     await Promise.race([
       waitForImagesLoaded(page),
-      new Promise((resolve) => setTimeout(() => resolve(undefined), 10000)),
+      new Promise((resolve) => setTimeout(() => resolve(undefined), 30000)),
     ]);
     console.log("Images loaded");
 
@@ -65,7 +65,16 @@ const waitForImagesLoaded = async (page: Page): Promise<void> => {
       inline: "nearest",
     });
 
+    const scrollingElement = document.scrollingElement || document.body;
+    scrollingElement.scrollTop = scrollingElement.scrollHeight;
+
     const selectors = Array.from(document.querySelectorAll("img"));
+
+    for (const img of selectors) {
+      img.scrollIntoView();
+      await new Promise((res) => setTimeout(res, 5));
+    }
+
     await Promise.all(
       selectors.map((img) => {
         if (img.complete) return;
