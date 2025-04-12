@@ -16,11 +16,11 @@ const PdfViewer = ({
   scale,
   onLoadSuccess,
 }: PdfViewerProps) => (
-  <div className="overflow-auto flex justify-center p-4 bg-background min-h-[500px]">
+  <div className="overflow-auto flex justify-center p-2 sm:p-4 bg-background/50">
     <Document
       file={url}
       onLoadSuccess={onLoadSuccess}
-      loading={<Loader />}
+      loading={<Loader className="animate-spin text-primary" />}
       error={
         <div className="text-destructive p-4 text-center">
           Failed to load PDF. Please try again.

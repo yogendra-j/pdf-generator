@@ -31,14 +31,17 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
-      <div className="mb-5">
-        <Label htmlFor="url" className="mb-2 text-foreground/90 font-medium">
+    <form onSubmit={handleSubmit} className="w-full mx-auto">
+      <div className="mb-4 sm:mb-5">
+        <Label
+          htmlFor="url"
+          className="mb-1 sm:mb-2 text-foreground/90 text-sm sm:text-base font-medium"
+        >
           Enter a URL to generate PDF
         </Label>
-        <div className="relative mt-2">
+        <div className="relative mt-1 sm:mt-2">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground/70">
-            <LinkIcon size={18} />
+            <LinkIcon size={16} className="sm:size-[18px]" />
           </div>
           <Input
             id="url"
@@ -46,7 +49,7 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
             placeholder="https://example.com"
             value={url}
             onChange={e => setUrl(e.target.value)}
-            className={`pl-10 h-11 ${
+            className={`pl-10 h-10 sm:h-11 text-sm sm:text-base ${
               error
                 ? 'border-destructive'
                 : 'border-input focus:border-primary/50'
@@ -55,7 +58,7 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
           />
         </div>
         {error && (
-          <p className="mt-1.5 text-sm text-destructive flex items-center gap-1.5">
+          <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-destructive flex items-center gap-1.5">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-destructive"></span>
             {error}
           </p>
@@ -65,7 +68,7 @@ const UrlForm = ({ onSubmit, isLoading }: UrlFormProps) => {
       <Button
         type="submit"
         disabled={isLoading}
-        className={`w-full h-11 font-medium transition-all duration-300 ${
+        className={`w-full h-10 sm:h-11 text-sm sm:text-base font-medium transition-all duration-300 ${
           isLoading
             ? 'bg-secondary/90 text-primary-foreground ring-1 ring-primary/20 hover:bg-secondary'
             : ''

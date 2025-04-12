@@ -42,34 +42,38 @@ const PdfPreview = ({
   };
 
   return (
-    <div className="flex flex-col gap-4 items-center max-w-fit max-h-fit">
+    <div className="flex flex-col items-center w-full h-full max-h-[inherit]">
       {loading && (
-        <div className="w-full flex justify-center items-center p-8">
-          <Loader />
+        <div className="w-full flex justify-center items-center p-4 sm:p-8 flex-1">
+          <Loader className="animate-spin" size={24} />
         </div>
       )}
 
-      <div className="bg-card rounded-lg overflow-hidden border border-border shadow-md max-w-fit">
-        <PdfHeader filename={filename} onDownload={onDownload} />
+      {!loading && previewUrl && (
+        <div className="flex flex-col bg-card w-full h-full max-h-[inherit] overflow-hidden">
+          <PdfHeader filename={filename} onDownload={onDownload} />
 
-        <PdfViewer
-          url={previewUrl}
-          pageNumber={pageNumber}
-          scale={scale}
-          onLoadSuccess={handleDocumentLoadSuccess}
-        />
+          <div className="flex-1 overflow-auto">
+            <PdfViewer
+              url={previewUrl}
+              pageNumber={pageNumber}
+              scale={scale}
+              onLoadSuccess={handleDocumentLoadSuccess}
+            />
+          </div>
 
-        <PdfControls
-          pageNumber={pageNumber}
-          numPages={numPages}
-          scale={scale}
-          previousPage={previousPage}
-          nextPage={nextPage}
-          zoomIn={zoomIn}
-          zoomOut={zoomOut}
-          resetZoom={resetZoom}
-        />
-      </div>
+          <PdfControls
+            pageNumber={pageNumber}
+            numPages={numPages}
+            scale={scale}
+            previousPage={previousPage}
+            nextPage={nextPage}
+            zoomIn={zoomIn}
+            zoomOut={zoomOut}
+            resetZoom={resetZoom}
+          />
+        </div>
+      )}
     </div>
   );
 };

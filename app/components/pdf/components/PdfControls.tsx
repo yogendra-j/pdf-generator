@@ -22,7 +22,7 @@ const PdfControls = ({
   zoomOut,
   resetZoom,
 }: PdfControlsProps) => (
-  <div className="p-4 border-t border-border flex items-center justify-between bg-card">
+  <div className="p-2 sm:p-4 border-t border-border flex flex-wrap justify-center sm:flex-nowrap sm:justify-between items-center gap-2 bg-card">
     <PdfNavigationControls
       pageNumber={pageNumber}
       numPages={numPages}

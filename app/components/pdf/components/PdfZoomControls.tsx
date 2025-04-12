@@ -14,20 +14,22 @@ const PdfZoomControls = ({
   zoomOut,
   resetZoom,
 }: PdfZoomControlsProps) => (
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-1 sm:gap-2">
     <Button
       onClick={zoomOut}
       variant="ghost"
       size="icon"
+      className="h-8 w-8 sm:h-9 sm:w-9"
       title="Zoom Out"
       aria-label="Zoom Out"
     >
-      <ZoomOut size={18} />
+      <ZoomOut size={16} className="sm:size-[18px]" />
     </Button>
     <Button
       onClick={resetZoom}
       variant="ghost"
       size="sm"
+      className="h-8 text-xs sm:text-sm px-2 sm:px-3"
       title="Reset Zoom"
       aria-label="Reset Zoom"
     >
@@ -37,10 +39,11 @@ const PdfZoomControls = ({
       onClick={zoomIn}
       variant="ghost"
       size="icon"
+      className="h-8 w-8 sm:h-9 sm:w-9"
       title="Zoom In"
       aria-label="Zoom In"
     >
-      <ZoomIn size={18} />
+      <ZoomIn size={16} className="sm:size-[18px]" />
     </Button>
   </div>
 );

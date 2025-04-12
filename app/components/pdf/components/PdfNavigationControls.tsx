@@ -14,17 +14,18 @@ const PdfNavigationControls = ({
   previousPage,
   nextPage,
 }: PdfNavigationControlsProps) => (
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-1 sm:gap-2">
     <Button
       onClick={previousPage}
       disabled={pageNumber <= 1}
       variant="ghost"
       size="icon"
+      className="h-8 w-8 sm:h-9 sm:w-9"
       aria-label="Previous Page"
     >
-      <ArrowLeft size={18} />
+      <ArrowLeft size={16} className="sm:size-[18px]" />
     </Button>
-    <span className="text-sm text-foreground">
+    <span className="text-xs sm:text-sm text-foreground">
       Page {pageNumber} of {numPages}
     </span>
     <Button
@@ -32,9 +33,10 @@ const PdfNavigationControls = ({
       disabled={pageNumber >= numPages}
       variant="ghost"
       size="icon"
+      className="h-8 w-8 sm:h-9 sm:w-9"
       aria-label="Next Page"
     >
-      <ArrowRight size={18} />
+      <ArrowRight size={16} className="sm:size-[18px]" />
     </Button>
   </div>
 );
